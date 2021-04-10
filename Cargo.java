@@ -1,0 +1,69 @@
+package faculdade;
+
+import java.util.Scanner;	
+public class Cargo {
+
+	public static void main(String[] args) {
+		 int n;
+	        double sal, novo_sal, aumento;
+	        String nome_fun;
+	        double indice;
+	        String cargo;
+	        
+	        Scanner teclado = new Scanner(System.in);
+	        
+	        System.out.println("Informe o nome do funcionário: ");
+	        nome_fun = teclado.next();
+	        
+	        System.out.println("Informe o salário do funcionário " + nome_fun + ": ");
+	        sal = teclado.nextDouble();
+	        
+	        System.out.println("Digite o número correspondente ao cargo do funcionário\n"
+	                + "1 - Escrituario\n"
+	                + "2 - Secretário\n"
+	                + "3 - Caixa\n"
+	                + "4 - Gerente\n"
+	                + "5 - Diretor\n");
+	        n = teclado.nextInt();
+	        
+	        switch (n)
+	        {
+	            case 1: indice = 0.5;
+	             cargo = "Escrituario";
+	             break;
+	            
+	            case 2: indice = 0.35;
+	            cargo = "Secretario";               
+	            break; 
+	        
+	            case 3: indice = 0.20;
+	            cargo = "Caixa";           
+	            break;
+	        
+	            case 4: indice = 0.10;
+	            cargo = "Gerente";            
+	            break;
+	        
+	            case 5: indice = 0;
+	            cargo = "Diretor";
+	            break;
+
+			default: System.out.println("Número digitado inválido!");
+			indice = -1;
+			cargo = "";
+	            break;
+	        }        
+	        
+	        if (indice == 6) {
+	        	
+	        	System.out.println("O funcionário " + nome_fun + ", do cargo Diretor\n"
+	                    + "Não recebe aumento no salário, ficando com seu salário atual: R$" + sal);
+	        } else if (n >= 1 && n <= 5){
+	        	aumento = sal * indice;
+	            novo_sal = sal + aumento;
+	            System.out.println("O funcionário " + nome_fun + ", do " + cargo +  "\n"
+	                   + "Recebe aumento no salário de " + indice * 100 + " = R$" + aumento + "\n"
+	                           + "Do salário atual: R$" + sal + ", é feito um reajuste para: " + novo_sal);
+	        }      
+	    }    
+}

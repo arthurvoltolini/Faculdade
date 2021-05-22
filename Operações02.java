@@ -2,11 +2,11 @@ package facul;
 
 import java.util.Scanner;
 
-public class Operações02 { 
+public class OperaÃ§Ãµes02 { 
 	public static void main(String[] args) {
 		
-  		//Declaração das variáveis.
-		  		int V1; 
+  		//DeclaraÃ§Ã£o das variÃ¡veis.
+		int V1; 
   		int V2;
   		int V3;
   		
@@ -22,13 +22,13 @@ public class Operações02 {
 	  	System.out.println("Digite o numero 2:");	  	
 	  	V3 = teclado.nextInt();		  	
 	  		
-	  	//Processamento e Saída
- 		System.out.println("Operação 1:" + (V1 + V2));
- 		System.out.println("Operação 2:" + (V2 - V1));
- 		System.out.println("Operação 3:" + (V3 * V1));
- 		System.out.println("Operação 4:" + (V3 + V2));
- 		System.out.println("Operação 5:" + (V3 - V2));
- 		System.out.println("Operação 6:" + (V1 + V2 + V3));
+	  	//Processamento e SaÃ­da
+ 		System.out.println("OperaÃ§Ã£o 1:" + (V1 + V2));
+ 		System.out.println("OperaÃ§Ã£o 2:" + (V2 - V1));
+ 		System.out.println("OperaÃ§Ã£o 3:" + (V3 * V1));
+ 		System.out.println("OperaÃ§Ã£o 4:" + (V3 + V2));
+ 		System.out.println("OperaÃ§Ã£o 5:" + (V3 - V2));
+ 		System.out.println("OperaÃ§Ã£o 6:" + (V1 + V2 + V3));
  		
  		teclado.close();
 	}

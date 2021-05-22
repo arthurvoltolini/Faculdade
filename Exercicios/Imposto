@@ -1,0 +1,131 @@
+package faculdade;
+
+import java.util.Scanner;
+
+public class Imposto {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		char escolher = 'N';
+		int opcao;
+		
+		do {
+			
+			//Escolha da opção no menu 
+			System.out.println("---------Menu---------");
+			System.out.println("----------------------");
+			System.out.println("1. Imposto\n"
+							 + "2. Novo salário\n"
+							 + "3. Classificação\n"
+							 + "4. Sair");
+			System.out.println("----------------------");
+			opcao = sc.nextInt();
+			
+			//Verifica se a opção é válida 
+			if(opcao > 4 || opcao < 1) {
+				System.out.println("Opção Inválida - informe uma opção de (1-3)");
+				escolher = 'N';
+			}else {
+	
+				//Informa o salário 
+				if(opcao == 4) {
+					//Finaliza o programa
+					escolher = 'S';
+					break;
+				}else {
+					System.out.println("Informe o salário: ");
+					double salario = sc.nextDouble();
+					
+					//Verifica se o salário é válido 
+					if(salario < 0) {
+						System.out.println("Opção Inválida - salário negativo!");
+						escolher = 'N';
+					}else {
+						
+						//Verificação das opções do menu 
+						switch (opcao) {
+						
+							//Imposto
+							case 1: {
+								
+								double imposto = 0;
+								
+								//Verificação de imposto - porcentagem 
+								if(salario < 500) {
+									imposto = 5;
+								}else if(salario >= 500 && salario <= 850) {
+									imposto = 10;
+								}else if(salario > 850) {
+									imposto = 15;
+								}
+								
+								//Calculo de valor do imposto
+								imposto = (salario*imposto)/100;
+							
+								//Exibição dos resultados 
+								System.out.println("----------------------");
+								System.out.println("Salário: "+salario);
+								System.out.println("Imposto: "+imposto);
+								System.out.println("----------------------");
+								
+								break;
+							}
+							
+							//Novo salário 
+							case 2: {
+								
+								double aumento = 0;
+								
+								//Verificação do aumento do salário
+								if(salario > 1500) {
+									aumento = 25;
+								}else if(salario >= 750 && salario <= 1500) {
+									aumento = 50;
+								}else if(salario >= 450 && salario <= 750) {
+									aumento = 75;
+								}else if(salario < 400) {
+									aumento = 100;
+								}
+								
+								//Calculo de aumento do salário 
+								double novoSalario = salario+aumento;
+								
+								//Exibição dos resultados
+								System.out.println("----------------------");
+								System.out.println("Salário: "+salario);
+								System.out.println("Aumento: "+aumento);
+								System.out.println("Novo Salário: "+novoSalario);
+								System.out.println("----------------------");
+								
+								break;
+							}
+							
+							//Classificação 
+							case 3: {
+								
+								//Mostra o salário
+								System.out.println("----------------------");
+								System.out.println("Salário: "+salario);
+								
+								//Verifica qual a categoria que o salário se encaixa 
+								if(salario <= 700) {
+									System.out.println("Mal Remunerado");
+								}else {
+									System.out.println("Bem Remunerado");
+								}
+								System.out.println("----------------------");
+								
+								break;
+							}
+						}	
+					}
+				}
+			}
+			
+		}while(escolher == 'N');
+		
+		System.out.println("Finalizado");
+		sc.close();
+	}
+}
